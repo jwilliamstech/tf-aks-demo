@@ -5,3 +5,7 @@ output "resource_group_name" {
 output "law_resource_group_name" {
   value = module.law.law_rg_name
 }
+
+#output "law_workspace_id" {
+#value = module.law.log_analytics_workspace_id
+#}

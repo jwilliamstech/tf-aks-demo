@@ -1,25 +1,25 @@
 variable "log_analytics_workspace_rg_name" {
   description = "(Required) Specifies the resource group name of the log analytics workspace"
   type        = string
-  default     = "tf-aks-law"
+  #default     = "tf-aks-law"
 }
 
 variable "log_analytics_workspace_name" {
   description = "(Required) Specifies the name of the log analytics workspace"
   type        = string
-  default     = "tf-aks"
+  # default     = "tf-aks"
 }
 
 variable "log_analytics_workspace_location" {
   description = "(Required) Specifies the location of the log analytics workspace"
   type        = string
-  default     = "West US"
+  #default     = "West US"
 }
 
 variable "log_analytics_workspace_sku" {
   description = "(Optional) Specifies the sku of the log analytics workspace"
   type        = string
-  default     = "PerGB2018"
+  #default     = "PerGB2018"
 
   validation {
     condition     = contains(["Free", "Standalone", "PerNode", "PerGB2018"], var.log_analytics_workspace_sku)
@@ -46,7 +46,7 @@ variable "solution_plan_map" {
 variable "log_analytics_retention_days" {
   description = " (Optional) Specifies the workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730."
   type        = number
-  default     = 30
+  #default     = 30
 }
 
 variable "log_analytics_tags" {

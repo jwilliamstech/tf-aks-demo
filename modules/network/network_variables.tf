@@ -1,12 +1,18 @@
 // ========================== virtual netowrking ==========================
 
-variable "vnet_rg_name" {
+variable "hub_vnet_rg_name" {
   description = "Name of the resource group name for virtual network"
   type        = string
   #default     = "tf-aks-vnet"
 }
 
-variable "vnet_location" {
+variable "hub_location" {
+  description = "Location in which to deploy the virtual network"
+  type        = string
+  #default     = "West US"
+}
+
+variable "hub_vnet_location" {
   description = "Location in which to deploy the virtual network"
   type        = string
   #default     = "West US"
@@ -38,9 +44,9 @@ variable "hub_gateway_subnet_address_prefixes" {
 }
 
 variable "hub_bastion_subnet_name" {
-  description = "Specifies the name of the hub vnet AzureBastion subnet"
+  description = "Specifies the name of the hub Bastion subnet"
   type        = string
-  #default     = "bastion"
+  #default     = "bastion-subnet"
 }
 
 variable "hub_bastion_subnet_address_prefixes" {
@@ -76,7 +82,7 @@ variable "spoke_vnet_address_space" {
 variable "jumpbox_subnet_name" {
   description = "Specifies the name of the jumpbox subnet"
   type        = string
-  #default     = "jumpbox"
+  #default     = "jumpbox_subnet"
 }
 
 variable "jumpbox_subnet_address_prefix" {
