@@ -16,7 +16,7 @@ variable "appgtw_pip_rg_name" {
 }
 
 variable "appgtw_pip_location" {
-  type        = string
+  type = string
   #default     = "West US"
   description = "Location of the app gateway public IP."
 }

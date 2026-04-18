@@ -64,6 +64,7 @@ module "acr" {
 
 }
 
+# ========================== bastion host ==========================
 module "bastion" {
   source              = "./modules/bastion"
   bastion_name        = var.bastion_name
@@ -75,6 +76,7 @@ module "bastion" {
   bastion_sku         = var.bastion_sku
 }
 
+# ========================== jumpbox ==========================
 module "jumpbox" {
   source                 = "./modules/jumpbox"
   jumpbox_location       = module.network.hub_location
