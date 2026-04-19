@@ -6,7 +6,7 @@ output "acr_name" {
 }
 
 output "acr_id" {
-  description = "Specifies the resource id of the container registry."
+  description = "Specifies the resource ID of the container registry."
   value       = azurerm_container_registry.acr.id
 }
 

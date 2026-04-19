@@ -295,6 +295,50 @@ variable "nsg_allowed_ip_range" {
   description = "Specifies the allowed IP range to connect to the jumpbox NSG"
   type        = string
 }
+
+# ========================== app gateway =================================
+
+variable "appgtw_name" {
+  description = "Specifies the name of the app gateway"
+  type        = string
+}
+
+variable "appgtw_sku_size" {
+  description = "Specifies the sku size of the app gateway"
+  type        = string
+}
+
+variable "appgtw_sku_tier" {
+  description = "Specifies the sku tier of the app gateway"
+  type        = string
+}
+
+variable "appgtw_sku_capacity" {
+  description = "Specifies the sku capacity of the app gateway"
+  type        = string
+}
+
+variable "appgtw_pip_name" {
+  description = "Specifies the name of the app gateway public ip"
+  type        = string
+}
+
+variable "appgtw_pip_allocation_method" {
+  description = "Specifies the app gateway public ip allocation method"
+  type        = string
+}
+
+variable "appgtw_pip_sku" {
+  description = "Specifies the sku of the app gateway public ip"
+  type        = string
+}
+
+variable "appgtw_pip_location" {
+  description = "Specifies the location of the app gateway public ip"
+  type        = string
+}
+
+
 # ========================== tags ========================================
 
 variable "default_tags" {

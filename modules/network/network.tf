@@ -22,7 +22,7 @@ resource "azurerm_virtual_network" "hub_vnet" {
 }
 
 //Create hub vnet gateway subnet
-resource "azurerm_subnet" "hub_gateway" {
+resource "azurerm_subnet" "hub_gateway_subnet" {
   name                 = var.hub_gateway_subnet_name
   resource_group_name  = azurerm_virtual_network.hub_vnet.resource_group_name
   virtual_network_name = azurerm_virtual_network.hub_vnet.name

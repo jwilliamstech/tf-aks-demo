@@ -3,8 +3,8 @@ resource "azurerm_public_ip" "appgtw_pip" {
   name                = lower("${var.appgtw_pip_name}-${local.environment}-${var.appgtw_public_ip_suffix}")
   resource_group_name = azurerm_resource_group.rg.name
   location            = var.appgtw_pip_location
-  allocation_method   = var.pip_allocation_method
-  sku                 = var.pip_sku
+  allocation_method   = var.appgtw_pip_allocation_method
+  sku                 = var.appgtw_pip_sku
 
   tags = merge(local.default_tags)
   lifecycle {
@@ -35,7 +35,7 @@ resource "azurerm_application_gateway" "appgtw" {
   }
   gateway_ip_configuration {
     name      = local.gateway_ip_configuration_name
-    subnet_id = azurerm_subnet.appgtw.id
+    subnet_id = var.azurerm_subnet.appgtw.id
   }
   frontend_port {
     name = local.frontend_port_name
@@ -114,7 +114,7 @@ resource "azurerm_application_gateway" "appgtw" {
 resource "azurerm_monitor_diagnostic_setting" "diag_apptw" {
   name                       = "${azurerm_application_gateway.appgtw.name}-${var.diag_suffix}"
   target_resource_id         = azurerm_application_gateway.appgtw.id
-  log_analytics_workspace_id = azurerm_log_analytics_workspace.workspace.id
+  log_analytics_workspace_id = var.output_law_id
   # dynamic "log" {
   #   for_each = local.diag_appgtw_logs
   #   content {

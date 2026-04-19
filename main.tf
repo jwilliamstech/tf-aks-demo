@@ -87,20 +87,20 @@ module "jumpbox" {
   nsg_allowed_ip_range   = var.nsg_allowed_ip_range
 }
 
-/*module "appgateway" {
-  source                 = "./modules/application_gateway"
-
-  appgtw_name            = var.appgtw_name
-  appgtw_sku_size        = var.appgtw_sku_size
-  appgtw_sku_tier        = var.appgtw_sku_tier
-  appgtw_sku_capacity    = var.appgtw_sku_capacity
-  appgtw_pip_name        = var.appgtw_pip_name
-  pip_allocation_method  = var.pip_allocation_method
-  pip_sku                = var.pip_sku
-  appgtw_pip_location    = var.appgtw_pip_location
+module "appgateway" {
+  source                       = "./modules/application_gateway"
+  appgtw_name                  = var.appgtw_name
+  appgtw_sku_size              = var.appgtw_sku_size
+  appgtw_sku_tier              = var.appgtw_sku_tier
+  appgtw_sku_capacity          = var.appgtw_sku_capacity
+  appgtw_subnet_id             = module.network.hub_appgtw_subnet_address_prefixes
+  appgtw_pip_name              = var.appgtw_pip_name
+  appgtw_pip_allocation_method = var.appgtw_pip_allocation_method
+  appgtw_pip_sku               = var.appgtw_pip_sku
+  appgtw_pip_location          = var.appgtw_pip_location
 
   depends_on = [
     module.rg,
     module.network,
   ]
-}*/
+}
